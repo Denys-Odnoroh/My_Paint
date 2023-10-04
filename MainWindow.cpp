@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalLayout->addWidget(upperToolbar, 1);
     ui->verticalLayout->addWidget(m_workSurface, 1);
 
-    m_pixmap = QPixmap("./BrushCursor.png");
+    m_pixmap = QPixmap(":/image/Images/BrushCursor.png");
     m_cursor = QCursor(m_pixmap);
     m_workSurface->setCursor(m_cursor);
 }

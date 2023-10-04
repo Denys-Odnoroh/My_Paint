@@ -26,6 +26,7 @@ set(PROJECT_SOURCES
         WorkSurfaceWidget.ui
         MainWindow.ui
         ToolbarWidget.ui
+        Images.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -53,7 +53,7 @@ void ToolbarWidget::on_EraserButton_clicked()
     m_palette->setColor(QPalette::Button, Qt::black);
     ui->EraserButton->setPalette(*m_palette);
 
-    m_pixmap = QPixmap("./EraserCursor.png");
+    m_pixmap = QPixmap(":/image/Images/EraserCursor.png");
     m_cursor = QCursor(m_pixmap);
     m_workSurfaceWidget->setCursor(m_cursor);
 
@@ -68,7 +68,7 @@ void ToolbarWidget::on_PaintButton_clicked()
     m_palette->setColor(QPalette::Button, Qt::black);
     ui->PaintButton->setPalette(*m_palette);
 
-    m_pixmap = QPixmap("./BrushCursor.png");
+    m_pixmap = QPixmap(":/image/Images/BrushCursor.png");
     m_cursor = QCursor(m_pixmap);
     m_workSurfaceWidget->setCursor(m_cursor);
 
