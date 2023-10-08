@@ -6,6 +6,8 @@
 WorkSurfaceWidget::WorkSurfaceWidget(QWidget *parent) : QOpenGLWidget(parent), ui(new Ui::WorkSurfaceWidget)
 {
     scene = new PaintScene;
+    m_settings = new Settings();
+    m_settings->setBackgroundBrush(scene->backgroundBrush());
 
     ui->setupUi(this);
     ui->graphicsView->setScene(scene);
@@ -38,6 +40,11 @@ Ui::WorkSurfaceWidget WorkSurfaceWidget::getUI()
 PaintScene* WorkSurfaceWidget::getScene()
 {
     return scene;
+}
+
+Settings* WorkSurfaceWidget::getSettings()
+{
+    return m_settings;
 }
 
 void WorkSurfaceWidget::initializeGL()

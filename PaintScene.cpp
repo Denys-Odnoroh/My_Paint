@@ -18,7 +18,7 @@ PaintScene::~PaintScene()
 
 }
 
- QColor PaintScene::getDrawingColor()
+QColor PaintScene::getDrawingColor()
 {
     return m_drawingColor;
 }

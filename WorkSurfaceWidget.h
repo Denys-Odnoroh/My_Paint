@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QTimer>
 #include "PaintScene.h"
+#include "Settings.h"
 
 namespace Ui
 {
@@ -16,6 +17,7 @@ class WorkSurfaceWidget : public QOpenGLWidget
     Q_OBJECT
 
 private:
+    Settings *m_settings;
     QTimer *timer;
     PaintScene *scene;
     Ui::WorkSurfaceWidget *ui;
@@ -27,6 +29,7 @@ public:
 public:
     Ui::WorkSurfaceWidget getUI();
     PaintScene* getScene();
+    Settings* getSettings();
 
 private:
     virtual void resizeEvent(QResizeEvent *resizeEvent) override;  
