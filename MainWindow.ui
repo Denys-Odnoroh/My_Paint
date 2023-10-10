@@ -23,9 +23,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>60</y>
+     <y>100</y>
      <width>1441</width>
-     <height>901</height>
+     <height>861</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -37,9 +37,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>19</x>
-     <y>10</y>
-     <width>1401</width>
+     <x>0</x>
+     <y>0</y>
+     <width>1441</width>
      <height>91</height>
     </rect>
    </property>

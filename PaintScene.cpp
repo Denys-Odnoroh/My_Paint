@@ -2,15 +2,12 @@
 
 PaintScene::PaintScene()
 {
-    m_bDrawingFlag = true;
-    m_iEraserSize = 10;
-    m_iBrushSize = 3;
+
 }
 
 PaintScene::PaintScene(PaintScene &scene)
 {
     scene.setStartingPoint(this->getStartingPoint());
-    scene.setDrawingFlag(this->getDrawingFlag());
 }
 
 PaintScene::~PaintScene()
@@ -18,46 +15,9 @@ PaintScene::~PaintScene()
 
 }
 
-QColor PaintScene::getDrawingColor()
+void PaintScene::setSettings(Settings *settings)
 {
-    return m_drawingColor;
-}
-
-bool PaintScene::getDrawingFlag()
-{
-    return this->m_bDrawingFlag;
-}
-
-void PaintScene::setBrushSize(int size)
-{
-    if(size > 0 && size < 100)
-    {
-        this->m_iBrushSize = size;
-    }
-}
-
-void PaintScene::setEraserSize(int size)
-{
-    if(size > 0 && size < 100)
-    {
-        this->m_iEraserSize = size;
-    }
-}
-
-void PaintScene::setDrawingFlag(bool flag)
-{
-    if(flag == 0 || flag == 1)
-    {
-        this->m_bDrawingFlag = flag;
-    }
-}
-
-void PaintScene::setDrawingColor(QColor color)
-{
-    if(color != nullptr)
-    {
-        this->m_drawingColor = color;
-    }
+    this->settings = settings;
 }
 
 void PaintScene::setStartingPoint(QPointF startingPoint)
@@ -70,22 +30,28 @@ QPointF PaintScene::getStartingPoint()
     return m_startingPoint;
 }
 
+Settings *PaintScene::getSettings()
+{
+    return settings;
+}
+
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     m_startingPoint = event->scenePos();
 
-    switch (m_bDrawingFlag)
+    switch (settings->getDrawingFlag())
     {
     case 0:
     {
         addEllipse(event->scenePos().x(), event->scenePos().y(),
-                   m_iEraserSize, m_iEraserSize, QPen(Qt::NoPen), QBrush(Qt::white));
+                   settings->getEraserSize(), settings->getEraserSize(), QPen(Qt::NoPen), QBrush(settings->getBackgroundColor()));
         break;
+
     }
     case 1:
     {
         addEllipse(event->scenePos().x(), event->scenePos().y(),
-                   m_iBrushSize, m_iBrushSize, QPen(Qt::NoPen), QBrush(this->getDrawingColor()));
+                   settings->getBrushSize(), settings->getBrushSize(), QPen(Qt::NoPen), QBrush(settings->getDrawingColor()));
         break;
     }
     }
@@ -93,20 +59,20 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    switch (m_bDrawingFlag)
+    switch (settings->getDrawingFlag())
     {
     case 0:
     {
         addLine(m_startingPoint.x(), m_startingPoint.y(),
                 event->scenePos().x(), event->scenePos().y(),
-                QPen(Qt::white, m_iEraserSize, Qt::SolidLine, Qt::RoundCap));
+                QPen(settings->getBackgroundColor(), settings->getEraserSize(), Qt::SolidLine, Qt::RoundCap));
         break;
     }
     case 1:
     {
         addLine(m_startingPoint.x(), m_startingPoint.y(),
                 event->scenePos().x(), event->scenePos().y(),
-                QPen(this->getDrawingColor(), m_iBrushSize, Qt::SolidLine, Qt::RoundCap));
+                QPen(settings->getDrawingColor(), settings->getBrushSize(), Qt::SolidLine, Qt::RoundCap));
         break;
     }
     }

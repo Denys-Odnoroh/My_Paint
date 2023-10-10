@@ -4,7 +4,7 @@ Settings::Settings()
 {
     m_bDrawingFlag = true;
     m_drawingColor = Qt::black;
-    m_backgroundBrush = Qt::white;
+    m_backgroundColor = Qt::white;
     m_iBrushSize = 3;
     m_iEraserSize = 10;
 }
@@ -14,9 +14,9 @@ QColor Settings::getDrawingColor()
     return m_drawingColor;
 }
 
-QColor Settings::getBackgroundBrush()
+QColor Settings::getBackgroundColor()
 {
-    return m_backgroundBrush;
+    return m_backgroundColor;
 }
 
 int Settings::getBrushSize()
@@ -66,7 +66,10 @@ void Settings::setDrawingColor(QColor color)
     }
 }
 
-void Settings::setBackgroundBrush(QBrush brush)
+void Settings::setBackgroundColor(QColor color)
 {
-    this->m_backgroundBrush = brush.color();
+    if(color != nullptr)
+    {
+        this->m_backgroundColor = color;
+    }
 }

@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::resizeEvent(QResizeEvent *resizeEvent)
-{
+{    
     ui->verticalLayoutWidget->resize(this->size());
 
     QSize size = this->size();

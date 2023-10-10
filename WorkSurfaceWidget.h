@@ -12,7 +12,7 @@ namespace Ui
 class WorkSurfaceWidget;
 }
 
-class WorkSurfaceWidget : public QOpenGLWidget
+class WorkSurfaceWidget : public QWidget
 {
     Q_OBJECT
 
@@ -34,10 +34,8 @@ public:
 private:
     virtual void resizeEvent(QResizeEvent *resizeEvent) override;  
 
-protected:
-    virtual void initializeGL() override;
-    virtual void resizeGL(int weight, int height) override;
-    virtual void paintGL() override;
+public:
+    virtual void resize(int weight, int height);
 
 private slots:
     void slotTimer();
