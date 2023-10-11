@@ -96,9 +96,16 @@ void ToolbarWidget::saveAs()
 
 QString ToolbarWidget::getfileExtencion(QString path)
 {
-    QString extencion = path.right(path.indexOf('.'));
-    if(extencion != "jpeg")
-        extencion.removeFirst();
+    int pathSybmolsCount = path.size();
+    int extencionSymbolsCount = 0;
+    wchar_t* wcharArray = new wchar_t[pathSybmolsCount];
+    path.toWCharArray(wcharArray);
+
+    for(pathSybmolsCount -= 1; wcharArray[pathSybmolsCount] != '.'; pathSybmolsCount--)
+        extencionSymbolsCount += 1;
+
+    path.erase(path.begin(), path.end() - extencionSymbolsCount);
+    QString extencion = path;
 
     return extencion;
 }
