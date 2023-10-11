@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 #include <QColorDialog>
+#include <QCursor>
+#include <QMenu>
+#include <QScreen>
+#include <QFileDialog>
+#include <QMessageBox>
 #include "WorkSurfaceWidget.h"
 #include "PaintScene.h"
 
@@ -31,6 +36,15 @@ public:
     void setPaintScene(PaintScene *scene);
     PaintScene getPaintScene();
 
+private:
+    void getOpenedImage(QPixmap &img);
+    QPixmap getSavedImage();
+    QString getfileExtencion(QString path);
+
+public slots:
+    void saveAs();
+    void load();
+
 private slots:
     void on_ClearButton_clicked();
     void on_EraserButton_clicked();
@@ -38,6 +52,7 @@ private slots:
     void on_PaintSpinBox_valueChanged(int size);
     void on_EraserSpinBox_valueChanged(int size);
     void on_ChangeColorButton_clicked();
+    void on_ChangeBackgroundColorButton_clicked();
 };
 
 #endif // TOOLBARWIDGET_H

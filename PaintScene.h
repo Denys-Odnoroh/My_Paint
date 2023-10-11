@@ -3,31 +3,25 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
+#include "Settings.h"
 
 class PaintScene : public QGraphicsScene
 {
     Q_OBJECT
 
 private:
-    QColor m_drawingColor;
+    Settings* settings;
     QPointF m_startingPoint;
-    bool m_bDrawingFlag;
-    int m_iEraserSize;
-    int m_iBrushSize;
 
 public:
     PaintScene();
     PaintScene(PaintScene& scene);
     ~PaintScene();
 
-    bool getDrawingFlag();
-    QColor getDrawingColor();
-    void setBrushSize(int size);
-    void setEraserSize(int size);
-    void setDrawingFlag(bool flag);
-    void setDrawingColor(QColor color);
-    void setStartingPoint(QPointF startingPoint);
     QPointF getStartingPoint();
+    Settings* getSettings();
+    void setSettings(Settings* settings);
+    void setStartingPoint(QPointF startingPoint);
 
 private:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

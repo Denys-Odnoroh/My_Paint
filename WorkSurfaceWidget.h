@@ -5,17 +5,19 @@
 #include <QPainter>
 #include <QTimer>
 #include "PaintScene.h"
+#include "Settings.h"
 
 namespace Ui
 {
 class WorkSurfaceWidget;
 }
 
-class WorkSurfaceWidget : public QOpenGLWidget
+class WorkSurfaceWidget : public QWidget
 {
     Q_OBJECT
 
 private:
+    Settings *m_settings;
     QTimer *timer;
     PaintScene *scene;
     Ui::WorkSurfaceWidget *ui;
@@ -27,14 +29,13 @@ public:
 public:
     Ui::WorkSurfaceWidget getUI();
     PaintScene* getScene();
+    Settings* getSettings();
 
 private:
     virtual void resizeEvent(QResizeEvent *resizeEvent) override;  
 
-protected:
-    virtual void initializeGL() override;
-    virtual void resizeGL(int weight, int height) override;
-    virtual void paintGL() override;
+public:
+    virtual void resize(int weight, int height);
 
 private slots:
     void slotTimer();

@@ -1,18 +1,30 @@
-#include <QOpenGLFunctions>
 #include <QPalette>
 #include "ui_WorkSurfaceWidget.h"
 #include "WorkSurfaceWidget.h"
 
-WorkSurfaceWidget::WorkSurfaceWidget(QWidget *parent) : QOpenGLWidget(parent), ui(new Ui::WorkSurfaceWidget)
+WorkSurfaceWidget::WorkSurfaceWidget(QWidget *parent) : QWidget(parent), ui(new Ui::WorkSurfaceWidget)
 {
     scene = new PaintScene;
+    scene->setParent(this);
 
+    scene->setSceneRect(0, 0, this->width(), this->height());
     ui->setupUi(this);
+
+    ui->graphicsView->setMaximumSize(this->size());
     ui->graphicsView->setScene(scene);
+    ui->graphicsView->setSceneRect(this->pos().x(), this->pos().y(), this->width(), this->height());
+
+    m_settings = new Settings();
+    m_settings->setBackgroundColor(Qt::white);
+    scene->setSettings(m_settings);
 
     timer = new QTimer();
     connect(timer, &QTimer::timeout, this, &WorkSurfaceWidget::slotTimer);
     timer->start(100);
+
+    QPalette palette(QColor(250, 250, 250));
+    this->setAutoFillBackground(true);
+    this->setPalette(palette);
 }
 
 WorkSurfaceWidget::~WorkSurfaceWidget()
@@ -23,13 +35,13 @@ WorkSurfaceWidget::~WorkSurfaceWidget()
 void WorkSurfaceWidget::resizeEvent(QResizeEvent *resizeEvent)
 {
     timer->start(100);
-    QOpenGLWidget::resizeEvent(resizeEvent);
+    QWidget::resizeEvent(resizeEvent);
     QSize size = this->size();
 }
 
 Ui::WorkSurfaceWidget WorkSurfaceWidget::getUI()
 {
-    if(scene != NULL)
+    if(scene != nullptr)
     {
         return *ui;
     }
@@ -40,25 +52,19 @@ PaintScene* WorkSurfaceWidget::getScene()
     return scene;
 }
 
-void WorkSurfaceWidget::initializeGL()
+Settings* WorkSurfaceWidget::getSettings()
 {
-    QOpenGLFunctions *f = QOpenGLContext::currentContext()->functions();
-    f->glClearColor(0.75, 0.75, 0.75, 1.0);
+    return m_settings;
 }
 
-void WorkSurfaceWidget::resizeGL(int weight, int height)
+void WorkSurfaceWidget::resize(int weight, int height)
 {
-    QOpenGLWidget::resizeGL(weight, height);
+    QWidget::resize(weight, height);
 }
 
-void WorkSurfaceWidget::paintGL()
-{
-
-}
 
 void WorkSurfaceWidget::slotTimer()
 {
     timer->stop();
     scene->setSceneRect(0,0, ui->graphicsView->width() - 20, ui->graphicsView->height() - 20);
 }
-

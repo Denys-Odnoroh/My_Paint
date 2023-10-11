@@ -19,14 +19,16 @@ set(PROJECT_SOURCES
         WorkSurfaceWidget.h
         PaintScene.h
         ToolbarWidget.h
+        Settings.h
         MainWindow.cpp
         WorkSurfaceWidget.cpp
         PaintScene.cpp
         ToolbarWidget.cpp
+        Settings.cpp
         WorkSurfaceWidget.ui
         MainWindow.ui
         ToolbarWidget.ui
-        Images.qrc
+        Resourse.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

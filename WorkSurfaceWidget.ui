@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1440</width>
-    <height>800</height>
+    <height>730</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,10 +25,10 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>1401</width>
-     <height>711</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1440</width>
+     <height>730</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -37,26 +37,14 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>640</width>
-     <height>480</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>1401</width>
-     <height>731</height>
-    </size>
-   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAsNeeded</enum>
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
    <property name="horizontalScrollBarPolicy">
-    <enum>Qt::ScrollBarAsNeeded</enum>
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
    <property name="backgroundBrush">
     <brush brushstyle="NoBrush">
