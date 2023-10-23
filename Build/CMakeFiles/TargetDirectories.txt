@@ -1,0 +1,9 @@
+D:/Qt Projects/My_Paint/Build/CMakeFiles/MyPaint.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/edit_cache.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/rebuild_cache.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/list_install_components.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/install.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/install/local.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/install/strip.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/MyPaint_autogen_timestamp_deps.dir
+D:/Qt Projects/My_Paint/Build/CMakeFiles/MyPaint_autogen.dir
