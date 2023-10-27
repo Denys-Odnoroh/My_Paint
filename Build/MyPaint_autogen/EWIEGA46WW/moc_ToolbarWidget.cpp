@@ -49,11 +49,15 @@ static constexpr auto qt_meta_stringdata_CLASSToolbarWidgetENDCLASS = QtMocHelpe
     "size",
     "on_EraserSpinBox_valueChanged",
     "on_ChangeColorButton_clicked",
-    "on_ChangeBackgroundColorButton_clicked"
+    "on_ChangeBackgroundColorButton_clicked",
+    "on_CircleButton_clicked",
+    "on_OvalButton_clicked",
+    "on_ReDoButton_clicked",
+    "on_UnDoButton_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSToolbarWidgetENDCLASS_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[32];
     char stringdata0[14];
     char stringdata1[7];
     char stringdata2[1];
@@ -66,6 +70,10 @@ struct qt_meta_stringdata_CLASSToolbarWidgetENDCLASS_t {
     char stringdata9[30];
     char stringdata10[29];
     char stringdata11[39];
+    char stringdata12[24];
+    char stringdata13[22];
+    char stringdata14[22];
+    char stringdata15[22];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSToolbarWidgetENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -82,7 +90,11 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSToolbarWidgetENDCLASS_t qt_meta
         QT_MOC_LITERAL(126, 4),  // "size"
         QT_MOC_LITERAL(131, 29),  // "on_EraserSpinBox_valueChanged"
         QT_MOC_LITERAL(161, 28),  // "on_ChangeColorButton_clicked"
-        QT_MOC_LITERAL(190, 38)   // "on_ChangeBackgroundColorButto..."
+        QT_MOC_LITERAL(190, 38),  // "on_ChangeBackgroundColorButto..."
+        QT_MOC_LITERAL(229, 23),  // "on_CircleButton_clicked"
+        QT_MOC_LITERAL(253, 21),  // "on_OvalButton_clicked"
+        QT_MOC_LITERAL(275, 21),  // "on_ReDoButton_clicked"
+        QT_MOC_LITERAL(297, 21)   // "on_UnDoButton_clicked"
     },
     "ToolbarWidget",
     "saveAs",
@@ -95,7 +107,11 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSToolbarWidgetENDCLASS_t qt_meta
     "size",
     "on_EraserSpinBox_valueChanged",
     "on_ChangeColorButton_clicked",
-    "on_ChangeBackgroundColorButton_clicked"
+    "on_ChangeBackgroundColorButton_clicked",
+    "on_CircleButton_clicked",
+    "on_OvalButton_clicked",
+    "on_ReDoButton_clicked",
+    "on_UnDoButton_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -107,7 +123,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSToolbarWidgetENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -115,15 +131,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSToolbarWidgetENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x0a,    1 /* Public */,
-       3,    0,   69,    2, 0x0a,    2 /* Public */,
-       4,    0,   70,    2, 0x08,    3 /* Private */,
-       5,    0,   71,    2, 0x08,    4 /* Private */,
-       6,    0,   72,    2, 0x08,    5 /* Private */,
-       7,    1,   73,    2, 0x08,    6 /* Private */,
-       9,    1,   76,    2, 0x08,    8 /* Private */,
-      10,    0,   79,    2, 0x08,   10 /* Private */,
-      11,    0,   80,    2, 0x08,   11 /* Private */,
+       1,    0,   92,    2, 0x0a,    1 /* Public */,
+       3,    0,   93,    2, 0x0a,    2 /* Public */,
+       4,    0,   94,    2, 0x08,    3 /* Private */,
+       5,    0,   95,    2, 0x08,    4 /* Private */,
+       6,    0,   96,    2, 0x08,    5 /* Private */,
+       7,    1,   97,    2, 0x08,    6 /* Private */,
+       9,    1,  100,    2, 0x08,    8 /* Private */,
+      10,    0,  103,    2, 0x08,   10 /* Private */,
+      11,    0,  104,    2, 0x08,   11 /* Private */,
+      12,    0,  105,    2, 0x08,   12 /* Private */,
+      13,    0,  106,    2, 0x08,   13 /* Private */,
+      14,    0,  107,    2, 0x08,   14 /* Private */,
+      15,    0,  108,    2, 0x08,   15 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -133,6 +153,10 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSToolbarWidgetENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -167,6 +191,14 @@ Q_CONSTINIT const QMetaObject ToolbarWidget::staticMetaObject = { {
         // method 'on_ChangeColorButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_ChangeBackgroundColorButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_CircleButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_OvalButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_ReDoButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_UnDoButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -187,6 +219,10 @@ void ToolbarWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 6: _t->on_EraserSpinBox_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 7: _t->on_ChangeColorButton_clicked(); break;
         case 8: _t->on_ChangeBackgroundColorButton_clicked(); break;
+        case 9: _t->on_CircleButton_clicked(); break;
+        case 10: _t->on_OvalButton_clicked(); break;
+        case 11: _t->on_ReDoButton_clicked(); break;
+        case 12: _t->on_UnDoButton_clicked(); break;
         default: ;
         }
     }
@@ -211,13 +247,13 @@ int ToolbarWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }

@@ -8,6 +8,7 @@
 #include <QScreen>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <vector>
 #include "WorkSurfaceWidget.h"
 #include "PaintScene.h"
 
@@ -53,6 +54,10 @@ private slots:
     void on_EraserSpinBox_valueChanged(int size);
     void on_ChangeColorButton_clicked();
     void on_ChangeBackgroundColorButton_clicked();
+    void on_CircleButton_clicked();
+    void on_OvalButton_clicked();
+    void on_ReDoButton_clicked();
+    void on_UnDoButton_clicked();
 };
 
 #endif // TOOLBARWIDGET_H

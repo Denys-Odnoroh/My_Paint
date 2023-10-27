@@ -1,16 +1,55 @@
 # ninja log v5
-2	2514	7197823151732983	MyPaint_autogen/timestamp	9f8e284110ec8262
-2	2514	7197823151732983	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
-2	2514	7197823151732983	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
-2	2514	7197823151732983	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+2593	7736	7197823206852652	CMakeFiles/MyPaint.dir/main.cpp.obj	3102a028103557ef
+14	303	7199463463453042	MyPaint_autogen/timestamp	9f8e284110ec8262
+14	303	7199463463453042	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+14	303	7199463463453042	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
+14	303	7199463463453042	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+2579	7921	7197823208844206	CMakeFiles/MyPaint.dir/MyPaint_autogen/mocs_compilation.cpp.obj	3b409051bdf36a9d
 2514	2579	7197823155239237	MyPaint_autogen/EWIEGA46WW/qrc_Resourse.cpp	62886a8fd38dfa8c
 2514	2579	7197823155239237	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/qrc_Resourse.cpp	62886a8fd38dfa8c
 2609	2750	7197823157076618	CMakeFiles/MyPaint.dir/MyPaint_autogen/EWIEGA46WW/qrc_Resourse.cpp.obj	3459a9d3b1cf9b0c
-2600	4651	7197823175903644	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
+326	2077	7199463481204608	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
 2605	4680	7197823176185132	CMakeFiles/MyPaint.dir/Settings.cpp.obj	49e29f2d4e125f86
-2588	7321	7197823202819922	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
-2593	7736	7197823206852652	CMakeFiles/MyPaint.dir/main.cpp.obj	3102a028103557ef
-2584	7827	7197823207906718	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
-2579	7921	7197823208844206	CMakeFiles/MyPaint.dir/MyPaint_autogen/mocs_compilation.cpp.obj	3b409051bdf36a9d
-2596	8504	7197823214607979	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
-8505	8709	7197823216633139	MyPaint.exe	cd4bb7bf9c6c7250
+319	3739	7199463497821167	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
+317	4030	7199463500736831	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
+322	4187	7199463502297537	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
+4188	4327	7199463503648257	MyPaint.exe	cd4bb7bf9c6c7250
+14	295	7199463721850194	MyPaint_autogen/timestamp	9f8e284110ec8262
+14	295	7199463721850194	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+14	295	7199463721850194	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
+14	295	7199463721850194	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+315	2059	7199463739492866	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
+311	3776	7199463756656702	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
+309	3807	7199463756986707	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
+319	4200	7199463760896108	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
+4200	4338	7199463762237172	MyPaint.exe	cd4bb7bf9c6c7250
+16	306	7199464466060426	MyPaint_autogen/timestamp	9f8e284110ec8262
+16	306	7199464466060426	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+16	306	7199464466060426	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
+16	306	7199464466060426	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+330	2069	7199464483689089	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
+323	3688	7199464499892476	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
+320	3981	7199464502818447	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
+326	4308	7199464506075687	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
+4309	4446	7199464507415028	MyPaint.exe	cd4bb7bf9c6c7250
+13	300	7199467072591361	MyPaint_autogen/timestamp	9f8e284110ec8262
+13	300	7199467072591361	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+13	300	7199467072591361	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
+13	300	7199467072591361	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+324	1962	7199467089219602	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
+317	3704	7199467106639314	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
+314	4032	7199467109920785	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
+320	4132	7199467110919530	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
+4132	4277	7199467112316532	MyPaint.exe	cd4bb7bf9c6c7250
+20	2615	7201395484569074	MyPaint_autogen/timestamp	9f8e284110ec8262
+20	2615	7201395484569074	MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+20	2615	7201395484569074	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/timestamp	9f8e284110ec8262
+20	2615	7201395484569074	D:/Qt Projects/My_Paint/Build/MyPaint_autogen/mocs_compilation.cpp	9f8e284110ec8262
+2652	4722	7201395508303798	CMakeFiles/MyPaint.dir/Settings.cpp.obj	49e29f2d4e125f86
+2637	5429	7201395515666551	CMakeFiles/MyPaint.dir/PaintScene.cpp.obj	68eef5ceeceea87a
+2631	7539	7201395536799384	CMakeFiles/MyPaint.dir/WorkSurfaceWidget.cpp.obj	426234a455af842
+2621	7693	7201395538347331	CMakeFiles/MyPaint.dir/main.cpp.obj	3102a028103557ef
+2616	7757	7201395538937263	CMakeFiles/MyPaint.dir/MyPaint_autogen/mocs_compilation.cpp.obj	3b409051bdf36a9d
+2626	7780	7201395539212704	CMakeFiles/MyPaint.dir/MainWindow.cpp.obj	911b04c6d21d37ab
+2644	8505	7201395546529038	CMakeFiles/MyPaint.dir/ToolbarWidget.cpp.obj	7d69abdc8ff862b7
+8505	8691	7201395548329397	MyPaint.exe	cd4bb7bf9c6c7250

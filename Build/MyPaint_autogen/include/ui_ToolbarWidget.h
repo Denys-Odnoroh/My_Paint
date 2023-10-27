@@ -32,6 +32,10 @@ public:
     QToolButton *FileOperationButton;
     QWidget *BackgroundColorIndIcator;
     QPushButton *ChangeBackgroundColorButton;
+    QPushButton *OvalButton;
+    QPushButton *CircleButton;
+    QPushButton *ReDoButton;
+    QPushButton *UnDoButton;
 
     void setupUi(QWidget *ToolbarWidget)
     {
@@ -45,7 +49,7 @@ public:
         EraserButton = new QPushButton(ToolbarWidget);
         EraserButton->setObjectName("EraserButton");
         EraserButton->setEnabled(true);
-        EraserButton->setGeometry(QRect(100, 10, 51, 41));
+        EraserButton->setGeometry(QRect(100, 30, 51, 21));
         EraserButton->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/image/Images/EraserCursor.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -58,7 +62,7 @@ public:
         PaintButton = new QPushButton(ToolbarWidget);
         PaintButton->setObjectName("PaintButton");
         PaintButton->setEnabled(true);
-        PaintButton->setGeometry(QRect(20, 10, 51, 41));
+        PaintButton->setGeometry(QRect(20, 30, 51, 21));
         PaintButton->setCursor(QCursor(Qt::PointingHandCursor));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/image/Images/BrushCursor.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -217,6 +221,26 @@ public:
         ChangeBackgroundColorButton->setEnabled(true);
         ChangeBackgroundColorButton->setGeometry(QRect(650, 10, 105, 41));
         ChangeBackgroundColorButton->setCursor(QCursor(Qt::PointingHandCursor));
+        OvalButton = new QPushButton(ToolbarWidget);
+        OvalButton->setObjectName("OvalButton");
+        OvalButton->setEnabled(true);
+        OvalButton->setGeometry(QRect(180, 30, 51, 20));
+        OvalButton->setCursor(QCursor(Qt::PointingHandCursor));
+        CircleButton = new QPushButton(ToolbarWidget);
+        CircleButton->setObjectName("CircleButton");
+        CircleButton->setEnabled(true);
+        CircleButton->setGeometry(QRect(180, 60, 51, 20));
+        CircleButton->setCursor(QCursor(Qt::PointingHandCursor));
+        ReDoButton = new QPushButton(ToolbarWidget);
+        ReDoButton->setObjectName("ReDoButton");
+        ReDoButton->setEnabled(true);
+        ReDoButton->setGeometry(QRect(310, 30, 51, 20));
+        ReDoButton->setCursor(QCursor(Qt::PointingHandCursor));
+        UnDoButton = new QPushButton(ToolbarWidget);
+        UnDoButton->setObjectName("UnDoButton");
+        UnDoButton->setEnabled(true);
+        UnDoButton->setGeometry(QRect(250, 30, 51, 20));
+        UnDoButton->setCursor(QCursor(Qt::PointingHandCursor));
 
         retranslateUi(ToolbarWidget);
 
@@ -228,10 +252,14 @@ public:
         ToolbarWidget->setWindowTitle(QCoreApplication::translate("ToolbarWidget", "Form", nullptr));
         EraserButton->setText(QCoreApplication::translate("ToolbarWidget", "Erase", nullptr));
         ClearButton->setText(QCoreApplication::translate("ToolbarWidget", "Clean", nullptr));
-        PaintButton->setText(QCoreApplication::translate("ToolbarWidget", "Paint", nullptr));
+        PaintButton->setText(QCoreApplication::translate("ToolbarWidget", "Brush", nullptr));
         ChangeColorButton->setText(QCoreApplication::translate("ToolbarWidget", "Select color", nullptr));
         FileOperationButton->setText(QCoreApplication::translate("ToolbarWidget", "File", nullptr));
         ChangeBackgroundColorButton->setText(QCoreApplication::translate("ToolbarWidget", "Background color", nullptr));
+        OvalButton->setText(QCoreApplication::translate("ToolbarWidget", "Oval", nullptr));
+        CircleButton->setText(QCoreApplication::translate("ToolbarWidget", "Circle", nullptr));
+        ReDoButton->setText(QCoreApplication::translate("ToolbarWidget", "->", nullptr));
+        UnDoButton->setText(QCoreApplication::translate("ToolbarWidget", "<-", nullptr));
     } // retranslateUi
 
 };

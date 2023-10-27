@@ -6,24 +6,34 @@
 
 class Settings
 {
+
+public:
+    enum SceneActions
+    {
+        EraseAction,
+        BrushDrawingAction,
+        OvalDrawingAction,
+        CircleDrawingAction
+    };
+
 private:
     QColor m_backgroundColor;
     QColor m_drawingColor;
-    bool m_bDrawingFlag;
+    int m_iActionIndex;
     int m_iEraserSize;
     int m_iBrushSize;
 
 public:
     Settings();
 
-    bool getDrawingFlag();
     QColor getDrawingColor();
     QColor getBackgroundColor();
+    int getAction();
     int getBrushSize();
     int getEraserSize();
     void setBrushSize(int size);
     void setEraserSize(int size);
-    void setDrawingFlag(bool flag);
+    void setAction(SceneActions actionType);
     void setDrawingColor(QColor color);
     void setBackgroundColor(QColor color);
 };

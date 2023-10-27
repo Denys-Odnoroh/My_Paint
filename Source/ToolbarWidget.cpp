@@ -11,7 +11,11 @@ ToolbarWidget::ToolbarWidget(QWidget *parent) :
     m_palette = new QPalette();
     ui->PaintButton->setAutoFillBackground(true);
     ui->EraserButton->setAutoFillBackground(true);
+    ui->OvalButton->setAutoFillBackground(true);
+    ui->CircleButton->setAutoFillBackground(true);
     ui->ColorIndIcator->setAutoFillBackground(true);
+    ui->UnDoButton->setAutoFillBackground(true);
+    ui->ReDoButton->setAutoFillBackground(true);
     ui->BackgroundColorIndIcator->setAutoFillBackground(true);
 
     ui->BackgroundColorIndIcator->setPalette(Qt::white);
@@ -131,6 +135,8 @@ void ToolbarWidget::on_EraserButton_clicked()
 {
     m_palette->setColor(QPalette::Button, Qt::white);
     ui->PaintButton->setPalette(*m_palette);
+    ui->CircleButton->setPalette(*m_palette);
+    ui->OvalButton->setPalette(*m_palette);
 
     m_palette->setColor(QPalette::Button, Qt::black);
     ui->EraserButton->setPalette(*m_palette);
@@ -139,13 +145,15 @@ void ToolbarWidget::on_EraserButton_clicked()
     m_cursor = QCursor(m_pixmap);
     m_workSurfaceWidget->setCursor(m_cursor);
 
-    m_scene->getSettings()->setDrawingFlag(false);
+    m_scene->getSettings()->setAction(Settings::EraseAction);
 }
 
 void ToolbarWidget::on_PaintButton_clicked()
 {
     m_palette->setColor(QPalette::Button, Qt::white);
     ui->EraserButton->setPalette(*m_palette);
+    ui->CircleButton->setPalette(*m_palette);
+    ui->OvalButton->setPalette(*m_palette);
 
     m_palette->setColor(QPalette::Button, Qt::black);
     ui->PaintButton->setPalette(*m_palette);
@@ -154,7 +162,7 @@ void ToolbarWidget::on_PaintButton_clicked()
     m_cursor = QCursor(m_pixmap);
     m_workSurfaceWidget->setCursor(m_cursor);
 
-    m_scene->getSettings()->setDrawingFlag(true);
+    m_scene->getSettings()->setAction(Settings::BrushDrawingAction);
 }
 
 
@@ -189,5 +197,67 @@ void ToolbarWidget::on_ChangeBackgroundColorButton_clicked()
         ui->BackgroundColorIndIcator->setPalette(QPalette(color));
         m_scene->getSettings()->setBackgroundColor(color);
         m_scene->setBackgroundBrush(color);
+    }
+}
+
+void ToolbarWidget::on_OvalButton_clicked()
+{
+    m_palette->setColor(QPalette::Button, Qt::white);
+    ui->EraserButton->setPalette(*m_palette);
+    ui->PaintButton->setPalette(*m_palette);
+    ui->CircleButton->setPalette(*m_palette);
+
+    m_palette->setColor(QPalette::Button, Qt::black);
+    ui->OvalButton->setPalette(*m_palette);
+
+    m_pixmap = QPixmap(":/image/Images/BrushCursor.png");
+    m_cursor = QCursor(m_pixmap);
+    m_workSurfaceWidget->setCursor(m_cursor);
+
+    m_scene->getSettings()->setAction(Settings::OvalDrawingAction);
+}
+
+void ToolbarWidget::on_CircleButton_clicked()
+{
+    m_palette->setColor(QPalette::Button, Qt::white);
+    ui->EraserButton->setPalette(*m_palette);
+    ui->PaintButton->setPalette(*m_palette);
+    ui->OvalButton->setPalette(*m_palette);
+
+    m_palette->setColor(QPalette::Button, Qt::black);
+    ui->CircleButton->setPalette(*m_palette);
+
+    m_pixmap = QPixmap(":/image/Images/BrushCursor.png");
+    m_cursor = QCursor(m_pixmap);
+    m_workSurfaceWidget->setCursor(m_cursor);
+
+    m_scene->getSettings()->setAction(Settings::CircleDrawingAction);
+}
+
+void ToolbarWidget::on_ReDoButton_clicked()
+{
+    if(!m_scene->getGraphicsItemsList().empty() && m_scene->getLastElementIndex() != m_scene->getGraphicsItemsList().size())
+    {
+        m_scene->setLastElementIndex(m_scene->getLastElementIndex() + 1);
+        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList().at(m_scene->getLastElementIndex() - 1);
+
+        for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+        {
+            m_scene->addItem(pGraphicsItem);
+        }
+    }
+}
+
+void ToolbarWidget::on_UnDoButton_clicked()
+{
+    if(!m_scene->getGraphicsItemsList().empty() && m_scene->getLastElementIndex() != 0)
+    {
+        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList().at(m_scene->getLastElementIndex() - 1);
+
+        for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+        {
+            m_scene->removeItem(pGraphicsItem);
+        }
+        m_scene->setLastElementIndex(m_scene->getLastElementIndex() - 1);
     }
 }

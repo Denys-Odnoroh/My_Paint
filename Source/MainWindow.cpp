@@ -12,10 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     m_workSurface = new WorkSurfaceWidget(this);
     m_workSurface->setFixedSize(1440, 810);
 
-    //QSettings regSettings("MyPaint");
-    //int val = regSettings.value("testValue").toInt();
-    //regSettings.setValue("testValue", 12);
-
     ToolbarWidget *upperToolbar = new ToolbarWidget(this);
     upperToolbar->setWorkSurfaceWidget(this->m_workSurface);
     upperToolbar->setFixedHeight(150);

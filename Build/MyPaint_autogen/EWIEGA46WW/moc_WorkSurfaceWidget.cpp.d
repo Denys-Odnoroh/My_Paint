@@ -136,6 +136,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_WorkSurfaceWidget.
   C:/Qt/6.6.0/mingw_64/include/QtGui/qopenglext.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpainter.h \
+  C:/Qt/6.6.0/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpixelformat.h \
@@ -156,9 +157,11 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_WorkSurfaceWidget.
   C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qopenglwidget.h \
   C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsexports.h \
   C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qsizepolicy.h \

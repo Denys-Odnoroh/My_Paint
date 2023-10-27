@@ -2,7 +2,7 @@
 
 Settings::Settings()
 {
-    m_bDrawingFlag = true;
+    m_iActionIndex = 1;
     m_drawingColor = Qt::black;
     m_backgroundColor = Qt::white;
     m_iBrushSize = 3;
@@ -29,9 +29,9 @@ int Settings::getEraserSize()
     return m_iEraserSize;
 }
 
-bool Settings::getDrawingFlag()
+int Settings::getAction()
 {
-    return this->m_bDrawingFlag;
+    return this->m_iActionIndex;
 }
 
 void Settings::setBrushSize(int size)
@@ -50,11 +50,11 @@ void Settings::setEraserSize(int size)
     }
 }
 
-void Settings::setDrawingFlag(bool flag)
+void Settings::setAction(SceneActions actionType)
 {
-    if(flag == 0 || flag == 1)
+    if(actionType >= 0)
     {
-        this->m_bDrawingFlag = flag;
+        this->m_iActionIndex = actionType;
     }
 }
 

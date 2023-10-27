@@ -27,9 +27,11 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtCore/qcontainerfwd.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qfloat16.h \
@@ -49,6 +51,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtCore/qlist.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qlogging.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qmap.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qmetacontainer.h \
@@ -70,9 +73,13 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qset.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qshareddata.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qshareddata_impl.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qsharedpointer.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qsize.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qstring.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qstringalgorithms.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qstringconverter_base.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qstringfwd.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qstringlist.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qstringliteral.h \
@@ -90,6 +97,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtcoreexports.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qtextstream.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -101,6 +109,8 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qtypes.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qutf8stringview.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qvariant.h \
+  C:/Qt/6.6.0/mingw_64/include/QtCore/qvarlengtharray.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.6.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/QBrush \
@@ -110,6 +120,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtGui/qfont.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qimage.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpaintdevice.h \
+  C:/Qt/6.6.0/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpixmap.h \
@@ -123,8 +134,10 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -232,6 +245,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/compare \

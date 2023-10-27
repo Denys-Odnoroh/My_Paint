@@ -155,6 +155,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_ToolbarWidget.cpp:
   C:/Qt/6.6.0/mingw_64/include/QtGui/qopenglext.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpainter.h \
+  C:/Qt/6.6.0/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qpixelformat.h \
@@ -178,6 +179,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_ToolbarWidget.cpp:
   C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QColorDialog \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QFileDialog \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -187,6 +189,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_ToolbarWidget.cpp:
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qcolordialog.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qfiledialog.h \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qmainwindow.h \
