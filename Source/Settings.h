@@ -13,7 +13,9 @@ public:
         EraseAction,
         BrushDrawingAction,
         OvalDrawingAction,
-        CircleDrawingAction
+        CircleDrawingAction,
+        ObjectsSelectionAction,
+        DraggingObjectAction
     };
 
 private:

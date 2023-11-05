@@ -2,5 +2,8 @@
     <qresource prefix="/image">
         <file>Images/BrushCursor.png</file>
         <file>Images/EraserCursor.png</file>
+        <file>Images/DottedSquare.png</file>
+        <file>Images/Circle.png</file>
+        <file>Images/Oval.png</file>
     </qresource>
 </RCC>

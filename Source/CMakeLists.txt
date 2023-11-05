@@ -20,11 +20,21 @@ set(PROJECT_SOURCES
         PaintScene.h
         ToolbarWidget.h
         Settings.h
+        BaseCreator.h
+        CurveCreator.h
+        CircleCreator.h
+        RectangleCreator.h
+        Entityes.h
+        Entityes.cpp
         MainWindow.cpp
         WorkSurfaceWidget.cpp
         PaintScene.cpp
         ToolbarWidget.cpp
         Settings.cpp
+        CurveCreator.cpp
+        CircleCreator.cpp
+        RectangleCreator.cpp
+        BaseCreator.cpp
         WorkSurfaceWidget.ui
         MainWindow.ui
         ToolbarWidget.ui

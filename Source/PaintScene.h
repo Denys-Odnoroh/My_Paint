@@ -8,8 +8,9 @@
 #include <vector>
 #include <memory>
 #include "Settings.h"
+#include "Entityes.h"
 
-typedef std::vector<QGraphicsItem*> DravableElementArray;
+typedef std::vector<BaseEntity*> DravableElementArray;
 
 
 class PaintScene : public QGraphicsScene
@@ -17,25 +18,23 @@ class PaintScene : public QGraphicsScene
     Q_OBJECT
 
 private:
+    QPointF start;
     Settings* settings;
-    QPointF m_startingPoint;
-    QPointF *start;
-    QGraphicsEllipseItem *m_tempCircle;
     std::vector<DravableElementArray> m_graphicsItems;
-    DravableElementArray m_aDrawableElement;
+    std::vector<DravableElementArray> m_selectedObjects;
     int iLastElementIndex = 0;
 
 public:
-    PaintScene();
+    PaintScene(QWidget *parent = nullptr);
     PaintScene(PaintScene& scene);
     ~PaintScene();
 
-    std::vector<DravableElementArray> getGraphicsItemsList();
-    QPointF getStartingPoint();
+    std::vector<DravableElementArray> *getGraphicsItemsList();
+    std::vector<DravableElementArray> *getSelectedObjects();
     Settings* getSettings();
     int getLastElementIndex();
+    void setLastElemIndex(int index);
     void setSettings(Settings* settings);
-    void setStartingPoint(QPointF startingPoint);
     void setLastElementIndex(int lastElementIndex);
 
 private:

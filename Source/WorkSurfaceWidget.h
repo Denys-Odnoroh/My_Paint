@@ -6,7 +6,10 @@
 #include <QTimer>
 #include "PaintScene.h"
 #include "Settings.h"
-
+#include "BaseCreator.h"
+#include "CircleCreator.h"
+#include "CurveCreator.h"
+#include "RectangleCreator.h"
 namespace Ui
 {
 class WorkSurfaceWidget;
@@ -17,6 +20,7 @@ class WorkSurfaceWidget : public QWidget
     Q_OBJECT
 
 private:
+    BaseCreator* m_creator;
     Settings *m_settings;
     QTimer *timer;
     PaintScene *scene;
@@ -30,6 +34,8 @@ public:
     Ui::WorkSurfaceWidget getUI();
     PaintScene* getScene();
     Settings* getSettings();
+    BaseCreator *getCreator();
+    void setCreator();
 
 private:
     virtual void resizeEvent(QResizeEvent *resizeEvent) override;  

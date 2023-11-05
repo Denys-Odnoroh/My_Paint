@@ -12,6 +12,7 @@
 #include "WorkSurfaceWidget.h"
 #include "PaintScene.h"
 
+
 namespace Ui {
 class ToolbarWidget;
 }
@@ -58,6 +59,7 @@ private slots:
     void on_OvalButton_clicked();
     void on_ReDoButton_clicked();
     void on_UnDoButton_clicked();
+    void on_ObectsSelectionButton_clicked();
 };
 
 #endif // TOOLBARWIDGET_H

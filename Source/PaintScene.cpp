@@ -1,15 +1,16 @@
 #include "PaintScene.h"
+#include "WorkSurfaceWidget.h"
 
 using namespace std;
 
-PaintScene::PaintScene()
+PaintScene::PaintScene(QWidget *parent)
 {
 
 }
 
 PaintScene::PaintScene(PaintScene &scene)
 {
-    scene.setStartingPoint(this->getStartingPoint());
+
 }
 
 PaintScene::~PaintScene()
@@ -17,9 +18,14 @@ PaintScene::~PaintScene()
 
 }
 
-std::vector<DravableElementArray> PaintScene::getGraphicsItemsList()
+std::vector<DravableElementArray> *PaintScene::getGraphicsItemsList()
 {
-    return m_graphicsItems;
+    return &m_graphicsItems;
+}
+
+std::vector<DravableElementArray> *PaintScene::getSelectedObjects()
+{
+    return &m_selectedObjects;
 }
 
 void PaintScene::setSettings(Settings *settings)
@@ -27,19 +33,9 @@ void PaintScene::setSettings(Settings *settings)
     this->settings = settings;
 }
 
-void PaintScene::setStartingPoint(QPointF startingPoint)
-{
-    this->m_startingPoint = startingPoint;
-}
-
 void PaintScene::setLastElementIndex(int lastElementIndex)
 {
     this->iLastElementIndex = lastElementIndex;
-}
-
-QPointF PaintScene::getStartingPoint()
-{
-    return m_startingPoint;
 }
 
 Settings *PaintScene::getSettings()
@@ -52,142 +48,60 @@ int PaintScene::getLastElementIndex()
     return iLastElementIndex;
 }
 
+void PaintScene::setLastElemIndex(int index)
+{
+    this->iLastElementIndex += index;
+}
+
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    if (event->button() == Qt::LeftButton && ((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
+        ((WorkSurfaceWidget*)this->parent())->getCreator()->mousePressEvent(event);
+
     for(int i = iLastElementIndex; iLastElementIndex < m_graphicsItems.size(); ++i)
     {
         m_graphicsItems.pop_back();
     }
 
-    this->setStartingPoint(event->scenePos());
-
     switch (settings->getAction())
     {
-    case Settings::EraseAction:
+    case Settings::DraggingObjectAction:
     {
-        QGraphicsEllipseItem *graphicsEllipseItem = this->addEllipse(m_startingPoint.x() - (settings->getEraserSize()/2),
-               m_startingPoint.y() - (settings->getEraserSize()/2),
-               settings->getEraserSize(), settings->getEraserSize(),
-               QPen(Qt::NoPen), QBrush(settings->getBackgroundColor()));
-
-        QGraphicsItem *graphicsItem = dynamic_cast <QGraphicsItem*> (graphicsEllipseItem);
-        m_aDrawableElement.push_back(graphicsItem);
-        break;
-    }
-    case Settings::BrushDrawingAction:
-    {
-        QGraphicsEllipseItem *graphicsEllipseItem = this->addEllipse(m_startingPoint.x() - (settings->getBrushSize()/2),
-                   m_startingPoint.y() - (settings->getBrushSize()/2),
-                   settings->getBrushSize(), settings->getBrushSize(),
-                   QPen(Qt::NoPen), QBrush(settings->getDrawingColor()));
-
-        QGraphicsItem *graphicsItem = dynamic_cast <QGraphicsItem*> (graphicsEllipseItem);
-        m_aDrawableElement.push_back(graphicsItem);
-        break;
-    }
-    case Settings::OvalDrawingAction:
-    {
-        start = new QPointF(m_startingPoint);
-        auto circle = new QGraphicsEllipseItem(start->x() - (1/2), start->y() - (1/2), 1, 1);
-        circle->setFlag(QGraphicsItem::ItemClipsChildrenToShape, true);
-        circle->setBrush(this->backgroundBrush());
-
-        m_aDrawableElement.push_back(circle);
-
-        m_tempCircle = circle;
-        break;
-    }
-    case Settings::CircleDrawingAction:
-    {
-        start = new QPointF(m_startingPoint);
-
-        QGraphicsEllipseItem *circle = this->addEllipse(start->x() - (1/2), start->y() - (1/2), 1, 1);
-        circle->setFlag(QGraphicsItem::ItemClipsChildrenToShape, true);
-        circle->setBrush(this->backgroundBrush());
-
-        m_aDrawableElement.push_back(circle);
-
-        m_tempCircle = circle;
-        break;
+        //startPosEvent = new QPointF(m_startingPoint);
     }
     }
 }
 
 void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
+    if (((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
+        ((WorkSurfaceWidget*)this->parent())->getCreator()->mouseMoveEvent(event);
+
     switch (settings->getAction())
     {
-    case Settings::EraseAction:
+    case Settings::DraggingObjectAction:
     {
-        QGraphicsLineItem *graphicsLineItem = this->addLine(m_startingPoint.x(), m_startingPoint.y(),
-                event->scenePos().x(), event->scenePos().y(),
-                QPen(settings->getBackgroundColor(), settings->getEraserSize(), Qt::SolidLine, Qt::RoundCap));
-
-        m_aDrawableElement.push_back(graphicsLineItem);
-        break;
-    }
-    case Settings::BrushDrawingAction:
-    {
-        QGraphicsLineItem *graphicsLineItem = this->addLine(m_startingPoint.x(), m_startingPoint.y(),
-                event->scenePos().x(), event->scenePos().y(),
-                QPen(settings->getDrawingColor(), settings->getBrushSize(), Qt::SolidLine, Qt::RoundCap));
-
-        m_aDrawableElement.push_back(graphicsLineItem);
-        break;
-    }
-    case Settings::OvalDrawingAction:
-    {
-        delete m_tempCircle;
+        RectangleEntity *tempRect = ((WorkSurfaceWidget*)this->parent())->getCreator()->getTempRectangle();
+        start = ((WorkSurfaceWidget*)this->parent())->getCreator()->getStartingPoint();
         QPointF currentPoint = event->scenePos();
-        auto circle = new QGraphicsEllipseItem(start->x(),
-                                               start->y(),
-                                               currentPoint.x() - start->x(),
-                                               currentPoint.y() - start->y());
-        circle->setFlag(QGraphicsItem::ItemClipsChildrenToShape, true);
-        circle->setBrush(this->backgroundBrush());
+        QPointF vector(currentPoint.x() - start.x(), currentPoint.y() - start.y());
 
-        m_aDrawableElement.push_back(circle);
-
-        m_tempCircle = circle;
-        break;
-    }
-    case Settings::CircleDrawingAction:
-    {
-        delete m_tempCircle;
-        QPointF currentPoint = event->scenePos();
-        int iBiggestcoordinate;
-        int i;
-
-        if(currentPoint.x() - start->x() >= currentPoint.y() - start->y())
+        for(DravableElementArray &aDrawableElem : this->m_selectedObjects)
         {
-            iBiggestcoordinate = currentPoint.x();
-            i = start->x();
+            for (BaseEntity* pGraphicsItem : aDrawableElem)
+            {
+                int startX = tempRect->getPosition().x();
+                int startY = tempRect->getPosition().x();
+
+                pGraphicsItem->setPos(startX + vector.x(), startY + vector.y());
+            }
         }
-        else if(currentPoint.x() - start->x() < currentPoint.y() - start->y())
-        {
-            iBiggestcoordinate = currentPoint.y();
-            i = start->y();
-        }
-
-        QGraphicsEllipseItem *circle = this->addEllipse(start->x(), start->y(),
-                                                        iBiggestcoordinate - i, iBiggestcoordinate - i);
-        circle->setFlag(QGraphicsItem::ItemClipsChildrenToShape, true);
-        circle->setBrush(this->backgroundBrush());
-
-        m_aDrawableElement.push_back(circle);
-
-        m_tempCircle = circle;
-        break;
     }
     }
-    m_startingPoint = event->scenePos();
 }
 
 void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    this->m_graphicsItems.push_back(m_aDrawableElement);
-    iLastElementIndex++;
-
-    if(!m_aDrawableElement.empty())
-        m_aDrawableElement.clear();
+    if (((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
+        ((WorkSurfaceWidget*)this->parent())->getCreator()->mouseReleaseEvent(event);
 }

@@ -146,6 +146,7 @@ void ToolbarWidget::on_EraserButton_clicked()
     m_workSurfaceWidget->setCursor(m_cursor);
 
     m_scene->getSettings()->setAction(Settings::EraseAction);
+    m_workSurfaceWidget->setCreator();
 }
 
 void ToolbarWidget::on_PaintButton_clicked()
@@ -163,6 +164,7 @@ void ToolbarWidget::on_PaintButton_clicked()
     m_workSurfaceWidget->setCursor(m_cursor);
 
     m_scene->getSettings()->setAction(Settings::BrushDrawingAction);
+    m_workSurfaceWidget->setCreator();
 }
 
 
@@ -215,6 +217,7 @@ void ToolbarWidget::on_OvalButton_clicked()
     m_workSurfaceWidget->setCursor(m_cursor);
 
     m_scene->getSettings()->setAction(Settings::OvalDrawingAction);
+    m_workSurfaceWidget->setCreator();
 }
 
 void ToolbarWidget::on_CircleButton_clicked()
@@ -232,14 +235,15 @@ void ToolbarWidget::on_CircleButton_clicked()
     m_workSurfaceWidget->setCursor(m_cursor);
 
     m_scene->getSettings()->setAction(Settings::CircleDrawingAction);
+    m_workSurfaceWidget->setCreator();
 }
 
 void ToolbarWidget::on_ReDoButton_clicked()
 {
-    if(!m_scene->getGraphicsItemsList().empty() && m_scene->getLastElementIndex() != m_scene->getGraphicsItemsList().size())
+    if(!m_scene->getGraphicsItemsList()->empty() && m_scene->getLastElementIndex() != m_scene->getGraphicsItemsList()->size())
     {
         m_scene->setLastElementIndex(m_scene->getLastElementIndex() + 1);
-        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList().at(m_scene->getLastElementIndex() - 1);
+        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
 
         for(QGraphicsItem* pGraphicsItem : aDrawableElem)
         {
@@ -250,9 +254,9 @@ void ToolbarWidget::on_ReDoButton_clicked()
 
 void ToolbarWidget::on_UnDoButton_clicked()
 {
-    if(!m_scene->getGraphicsItemsList().empty() && m_scene->getLastElementIndex() != 0)
+    if(!m_scene->getGraphicsItemsList()->empty() && m_scene->getLastElementIndex() != 0)
     {
-        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList().at(m_scene->getLastElementIndex() - 1);
+        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
 
         for(QGraphicsItem* pGraphicsItem : aDrawableElem)
         {
@@ -261,3 +265,23 @@ void ToolbarWidget::on_UnDoButton_clicked()
         m_scene->setLastElementIndex(m_scene->getLastElementIndex() - 1);
     }
 }
+
+void ToolbarWidget::on_ObectsSelectionButton_clicked()
+{
+    m_palette->setColor(QPalette::Button, Qt::white);
+    ui->EraserButton->setPalette(*m_palette);
+    ui->PaintButton->setPalette(*m_palette);
+    ui->OvalButton->setPalette(*m_palette);
+    ui->CircleButton->setPalette(*m_palette);
+
+    m_palette->setColor(QPalette::Button, Qt::black);
+    ui->ObectsSelectionButton->setPalette(*m_palette);
+
+    m_pixmap = QPixmap(":/image/Images/BrushCursor.png");
+    m_cursor = QCursor(m_pixmap);
+    m_workSurfaceWidget->setCursor(m_cursor);
+
+    m_scene->getSettings()->setAction(Settings::ObjectsSelectionAction);
+    m_workSurfaceWidget->setCreator();
+}
+
