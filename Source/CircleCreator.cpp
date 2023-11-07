@@ -34,9 +34,9 @@ void CircleCreator::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         QGraphicsItem* item = static_cast<QGraphicsItem*>(circleElem);
         CircleEntity* circle = static_cast<CircleEntity*>(item);
-        aCircleElem.push_back(circle);
 
-        m_tempCircle = circle;
+        circle->setPosition(m_startingPoint.x(), m_startingPoint.y());
+        m_circleElem = circle;
         break;
     }
     case Settings::CircleDrawingAction:
@@ -47,9 +47,9 @@ void CircleCreator::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         QGraphicsItem* item = static_cast<QGraphicsItem*>(circleElem);
         CircleEntity* circle = static_cast<CircleEntity*>(item);
-        aCircleElem.push_back(circle);
 
-        m_tempCircle = circle;
+        circle->setPosition(m_startingPoint.x(), m_startingPoint.y());
+        m_circleElem = circle;
         break;
     }
     }
@@ -57,11 +57,12 @@ void CircleCreator::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void CircleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
+    m_scene->removeItem(m_circleElem);
+
     switch (m_settings->getAction())
     {
     case Settings::OvalDrawingAction:
     {
-        delete m_tempCircle;
         QPointF currentPoint = event->scenePos();
 
         QGraphicsEllipseItem *circleElem = m_scene->addEllipse(m_startingPoint.x(),
@@ -75,14 +76,11 @@ void CircleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         CircleEntity* circle = static_cast<CircleEntity*>(item);
 
         circle->setPosition(m_startingPoint.x(), m_startingPoint.y());
-        aCircleElem.push_back(circle);
-
-        m_tempCircle = circle;
+        m_circleElem = circle;
         break;
     }
     case Settings::CircleDrawingAction:
     {
-        delete m_tempCircle;
         QPointF currentPoint = event->scenePos();
         int iBiggestcoordinate;
         int i;
@@ -98,18 +96,14 @@ void CircleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             i = m_startingPoint.y();
         }
 
-        QGraphicsEllipseItem *circleElem = m_scene->addEllipse(m_startingPoint.x(), m_startingPoint.y(),
-                                                           iBiggestcoordinate - i, iBiggestcoordinate - i);
+        QGraphicsItem *circleElem = m_scene->addEllipse(m_startingPoint.x(), m_startingPoint.y(),
+                                                        iBiggestcoordinate - i, iBiggestcoordinate - i);
         circleElem->setFlag(QGraphicsItem::ItemClipsChildrenToShape, true);
-        circleElem->setBrush(m_scene->backgroundBrush());
 
-        QGraphicsItem* item = static_cast<QGraphicsItem*>(circleElem);
-        CircleEntity* circle = static_cast<CircleEntity*>(item);
+        CircleEntity* circle = static_cast<CircleEntity*>(circleElem);
 
         circle->setPosition(m_startingPoint.x(), m_startingPoint.y());
-        aCircleElem.push_back(circle);
-
-        m_tempCircle = circle;
+        m_circleElem = circle;
         break;
     }
     }
@@ -117,19 +111,14 @@ void CircleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void CircleCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    if(!aCircleElem.empty())
+    if(m_circleElem != nullptr)
     {
         std::vector<BaseEntity*> base;
-        base.reserve(aCircleElem.size());
 
-        for (int i = 0; i < aCircleElem.size(); ++i)
-        {
-            base.push_back(dynamic_cast<BaseEntity*>(aCircleElem[i]));
-            base.back()->getPosition() = aCircleElem[i]->getPosition();
-        }
+        base.push_back(dynamic_cast<BaseEntity*>(m_circleElem));
+        base.back()->getPosition() = m_circleElem->getPosition();
 
         m_scene->getGraphicsItemsList()->push_back(base);
         m_scene->setLastElemIndex(1);
-        aCircleElem.clear();
     }
 }

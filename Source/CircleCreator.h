@@ -7,9 +7,8 @@
 class CircleCreator : public BaseCreator
 {
 private:
-    std::vector<CircleEntity*> aCircleElem;
-    Settings* m_settings;
-    CircleEntity *m_tempCircle;
+    CircleEntity *m_circleElem;
+    Settings *m_settings;
     QPointF m_startingPoint;
 
 public:

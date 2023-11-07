@@ -11,7 +11,7 @@ public:
     virtual ~BaseCreator() {};
     PaintScene* m_scene;
 
-    virtual RectangleEntity* getTempRectangle(){};
+    virtual RectangleEntity* getRectangle(){};
     virtual QPointF getStartingPoint(){};
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event){};
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event){};

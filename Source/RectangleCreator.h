@@ -2,14 +2,12 @@
 #define RECTANGLECREATOR_H
 
 #include "BaseCreator.h"
-#include "QGraphicsEllipseItem"
 
 class RectangleCreator : public BaseCreator
 {
 private:
-    std::vector<std::shared_ptr<RectangleEntity*>> aRectElem;
+    RectangleEntity *m_rectangle;
     Settings* m_settings;
-    RectangleEntity *m_tempRectangle;
     QPointF m_startingPoint;
 
 public:
@@ -18,7 +16,7 @@ public:
 
     void setStartingPoint(QPointF startingPoint);
 
-    virtual RectangleEntity* getTempRectangle() override;
+    virtual RectangleEntity* getRectangle() override;
     virtual QPointF getStartingPoint() override;
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;

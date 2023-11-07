@@ -67,7 +67,7 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     {
     case Settings::DraggingObjectAction:
     {
-        //startPosEvent = new QPointF(m_startingPoint);
+        ((WorkSurfaceWidget*)this->parent())->setCursor(Qt::ClosedHandCursor);
     }
     }
 }
@@ -81,7 +81,7 @@ void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
     case Settings::DraggingObjectAction:
     {
-        RectangleEntity *tempRect = ((WorkSurfaceWidget*)this->parent())->getCreator()->getTempRectangle();
+        RectangleEntity *tempRect = ((WorkSurfaceWidget*)this->parent())->getCreator()->getRectangle();
         start = ((WorkSurfaceWidget*)this->parent())->getCreator()->getStartingPoint();
         QPointF currentPoint = event->scenePos();
         QPointF vector(currentPoint.x() - start.x(), currentPoint.y() - start.y());
@@ -94,6 +94,7 @@ void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                 int startY = tempRect->getPosition().x();
 
                 pGraphicsItem->setPos(startX + vector.x(), startY + vector.y());
+                pGraphicsItem->setPosition(startX + vector.x(), startY + vector.y());
             }
         }
     }
@@ -104,4 +105,12 @@ void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if (((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
         ((WorkSurfaceWidget*)this->parent())->getCreator()->mouseReleaseEvent(event);
+
+    switch (settings->getAction())
+    {
+    case Settings::DraggingObjectAction:
+    {
+        ((WorkSurfaceWidget*)this->parent())->setCursor(Qt::OpenHandCursor);
+    }
+    }
 }

@@ -5,15 +5,14 @@
 
 class BaseEntity : public QGraphicsItem
 {
+protected:
+    QPoint m_position;
+
 public:
     BaseEntity();
 
     void setPosition(int x, int y) { m_position = QPoint(x, y); };
     QPoint getPosition() { return m_position; };
-
-protected:
-    QPoint m_position;
-
 };
 
 class CircleEntity : public BaseEntity

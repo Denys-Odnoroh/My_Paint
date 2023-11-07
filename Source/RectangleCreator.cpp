@@ -15,9 +15,9 @@ QPointF RectangleCreator::getStartingPoint()
     return m_startingPoint;
 }
 
-RectangleEntity *RectangleCreator::getTempRectangle()
+RectangleEntity *RectangleCreator::getRectangle()
 {
-    return m_tempRectangle;
+    return m_rectangle;
 }
 
 void RectangleCreator::setStartingPoint(QPointF startingPoint)
@@ -40,7 +40,8 @@ void RectangleCreator::mousePressEvent(QGraphicsSceneMouseEvent *event)
         QGraphicsItem* item = static_cast<QGraphicsItem*>(rect);
         RectangleEntity* rectangle = static_cast<RectangleEntity*>(item);
 
-        m_tempRectangle = rectangle;
+        rectangle->setPosition(m_startingPoint.x(), m_startingPoint.y());
+        m_rectangle = rectangle;
         break;
     }
     }
@@ -48,11 +49,12 @@ void RectangleCreator::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void RectangleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
+    m_scene->removeItem(m_rectangle);
+
     switch (m_settings->getAction())
     {
     case Settings::ObjectsSelectionAction:
     {
-        delete m_tempRectangle;
         QPointF currentPoint = event->scenePos();
         QGraphicsRectItem *rect = m_scene->addRect(m_startingPoint.x(),
                                                    m_startingPoint.y(),
@@ -64,7 +66,8 @@ void RectangleCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         QGraphicsItem* item = static_cast<QGraphicsItem*>(rect);
         RectangleEntity* rectangle = static_cast<RectangleEntity*>(item);
 
-        m_tempRectangle = rectangle;
+        rectangle->setPosition(m_startingPoint.x(), m_startingPoint.y());
+        m_rectangle = rectangle;
         break;
     }
     }
@@ -77,12 +80,12 @@ void RectangleCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     case Settings::ObjectsSelectionAction:
     {
         m_scene->getSelectedObjects()->clear();
-        m_scene->removeItem(m_tempRectangle);
+        m_scene->removeItem(m_rectangle);
 
         int iStartX = m_startingPoint.x();
         int iStartY = m_startingPoint.y();
-        int iFinalX = m_startingPoint.x() + m_tempRectangle->boundingRect().width();
-        int iFinalY = m_startingPoint.y() + m_tempRectangle->boundingRect().height();
+        int iFinalX = m_startingPoint.x() + m_rectangle->boundingRect().width();
+        int iFinalY = m_startingPoint.y() + m_rectangle->boundingRect().height();
 
         for(const DravableElementArray &aDrawableElem : *m_scene->getGraphicsItemsList())
         {

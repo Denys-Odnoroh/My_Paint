@@ -25,6 +25,8 @@ set(PROJECT_SOURCES
         CircleCreator.h
         RectangleCreator.h
         Entityes.h
+        ObjectChangeHistory.h
+        ObjectChangeHistory.cpp
         Entityes.cpp
         MainWindow.cpp
         WorkSurfaceWidget.cpp
