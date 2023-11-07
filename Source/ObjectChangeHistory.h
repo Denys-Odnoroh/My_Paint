@@ -4,7 +4,7 @@
 #include <map>
 #include "Entityes.h"
 
-typedef std::map<int, BaseEntity> ChangeHistoryMap;
+typedef std::map<int, BaseEntity*> ChangeHistoryMap;
 
 class ObjectChangeHistory
 {
