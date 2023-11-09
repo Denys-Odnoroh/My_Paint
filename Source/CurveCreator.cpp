@@ -75,6 +75,7 @@ void CurveCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                                       Qt::SolidLine, Qt::RoundCap));
 
         LineEntity* line = static_cast<LineEntity*>(lineItem);
+        line->setPosition(m_startingPoint.x(), m_startingPoint.y());
         aCurveElem.push_back(line);
 
         m_startingPoint = event->scenePos();
@@ -88,6 +89,7 @@ void CurveCreator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                                       Qt::SolidLine, Qt::RoundCap));
 
         LineEntity* line = static_cast<LineEntity*>(lineItem);
+        line->setPosition(m_startingPoint.x(), m_startingPoint.y());
         aCurveElem.push_back(line);
 
         m_startingPoint = event->scenePos();
@@ -112,12 +114,12 @@ void CurveCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
 
         m_scene->getGraphicsItemsList()->push_back(base);
-        m_scene->setLastElemIndex(1);
+        m_scene->incrementLastElemIndex();
 
         ObjectChangeHistory *object = new ObjectChangeHistory(true, base, points);
 
         m_scene->getHistory()->push_back(object);
-        m_scene->setChangeHistoryIndex(1);
+        m_scene->incrementChangeHistoryIndex();
 
         aCurveElem.clear();
     }

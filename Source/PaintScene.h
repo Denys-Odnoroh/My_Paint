@@ -38,10 +38,11 @@ public:
     Settings* getSettings();
     int getLastElementIndex();
     int getChangeHistoryIndex() { return iChangeHistoryIndex; };
-    void setLastElemIndex(int index);
     void setSettings(Settings* settings);
-    void setLastElementIndex(int lastElementIndex);
-    void setChangeHistoryIndex(int index) { iChangeHistoryIndex += index; };
+    void incrementLastElemIndex() { ++iLastElementIndex; };
+    void decrementLastElemIndex() { --iLastElementIndex; };
+    void incrementChangeHistoryIndex() { ++iChangeHistoryIndex; };
+    void decrementChangeHistoryIndex() { --iChangeHistoryIndex; };
 
 private:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);

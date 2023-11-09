@@ -243,14 +243,14 @@ void ToolbarWidget::on_CircleButton_clicked()
 
 void ToolbarWidget::on_ReDoButton_clicked()
 {
-    if(!m_scene->getHistory()->empty() && m_scene->getChangeHistoryIndex() != m_scene->getHistory()->size())
+    if(!m_scene->getHistory()->empty() && m_scene->getChangeHistoryIndex() < m_scene->getHistory()->size())
     {
-        m_scene->setChangeHistoryIndex(1);
+        m_scene->incrementChangeHistoryIndex();
         if(!m_scene->getGraphicsItemsList()->empty())
         {
             if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == true)
             {
-                m_scene->setLastElementIndex(1);
+                m_scene->incrementLastElemIndex();
                 DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
 
                 for(QGraphicsItem* pGraphicsItem : aDrawableElem)
@@ -285,8 +285,8 @@ void ToolbarWidget::on_UnDoButton_clicked()
                 {
                     m_scene->removeItem(pGraphicsItem);
                 }
-                m_scene->setLastElementIndex(-1);
-                m_scene->setChangeHistoryIndex(-1);
+                m_scene->decrementLastElemIndex();
+                m_scene->decrementChangeHistoryIndex();
             }
             else if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == false)
             {
@@ -296,7 +296,7 @@ void ToolbarWidget::on_UnDoButton_clicked()
                     m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPosition(point.x(), point.y());
                     m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPos(point.x(), point.y());
                 }
-                m_scene->setChangeHistoryIndex(-1);
+                m_scene->decrementChangeHistoryIndex();
             }
         }
     }

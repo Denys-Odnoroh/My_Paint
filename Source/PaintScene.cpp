@@ -38,11 +38,6 @@ void PaintScene::setSettings(Settings *settings)
     this->settings = settings;
 }
 
-void PaintScene::setLastElementIndex(int index)
-{
-    this->iLastElementIndex += index;
-}
-
 Settings *PaintScene::getSettings()
 {
     return settings;
@@ -51,11 +46,6 @@ Settings *PaintScene::getSettings()
 int PaintScene::getLastElementIndex()
 {
     return iLastElementIndex;
-}
-
-void PaintScene::setLastElemIndex(int index)
-{
-    this->iLastElementIndex += index;
 }
 
 void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)

@@ -123,11 +123,11 @@ void CircleCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         points.push_back(base.back()->getPosition());
 
         m_scene->getGraphicsItemsList()->push_back(base);
-        m_scene->setLastElemIndex(1);
+        m_scene->incrementLastElemIndex();
 
         ObjectChangeHistory *object = new ObjectChangeHistory(true, base, points);
 
         m_scene->getHistory()->push_back(object);
-        m_scene->setChangeHistoryIndex(1);
+        m_scene->incrementChangeHistoryIndex();
     }
 }
