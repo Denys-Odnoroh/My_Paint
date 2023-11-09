@@ -180,6 +180,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_ToolbarWidget.cpp:
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QColorDialog \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -653,6 +654,12 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_ToolbarWidget.cpp:
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wow64apiset.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypes.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypesbase.h \
+  D:/Qt\ Projects/My_Paint/Source/BaseCreator.h \
+  D:/Qt\ Projects/My_Paint/Source/CircleCreator.h \
+  D:/Qt\ Projects/My_Paint/Source/CurveCreator.h \
+  D:/Qt\ Projects/My_Paint/Source/Entityes.h \
+  D:/Qt\ Projects/My_Paint/Source/ObjectChangeHistory.h \
   D:/Qt\ Projects/My_Paint/Source/PaintScene.h \
+  D:/Qt\ Projects/My_Paint/Source/RectangleCreator.h \
   D:/Qt\ Projects/My_Paint/Source/Settings.h \
   D:/Qt\ Projects/My_Paint/Source/WorkSurfaceWidget.h

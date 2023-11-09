@@ -18,6 +18,11 @@ PaintScene::~PaintScene()
 
 }
 
+std::vector<ObjectChangeHistory *> *PaintScene::getHistory()
+{
+    return &m_history;
+}
+
 std::vector<DravableElementArray> *PaintScene::getGraphicsItemsList()
 {
     return &m_graphicsItems;
@@ -33,9 +38,9 @@ void PaintScene::setSettings(Settings *settings)
     this->settings = settings;
 }
 
-void PaintScene::setLastElementIndex(int lastElementIndex)
+void PaintScene::setLastElementIndex(int index)
 {
-    this->iLastElementIndex = lastElementIndex;
+    this->iLastElementIndex += index;
 }
 
 Settings *PaintScene::getSettings()
@@ -63,11 +68,18 @@ void PaintScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         m_graphicsItems.pop_back();
     }
 
+    for(int i = iChangeHistoryIndex; iChangeHistoryIndex < m_history.size(); ++i)
+    {
+        m_history.pop_back();
+    }
+
     switch (settings->getAction())
     {
     case Settings::DraggingObjectAction:
     {
         ((WorkSurfaceWidget*)this->parent())->setCursor(Qt::ClosedHandCursor);
+
+        break;
     }
     }
 }
@@ -90,27 +102,43 @@ void PaintScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         {
             for (BaseEntity* pGraphicsItem : aDrawableElem)
             {
-                int startX = tempRect->getPosition().x();
-                int startY = tempRect->getPosition().x();
-
-                pGraphicsItem->setPos(startX + vector.x(), startY + vector.y());
-                pGraphicsItem->setPosition(startX + vector.x(), startY + vector.y());
+                pGraphicsItem->setPos(start.x() - 150 + vector.x(), start.y() - 50 + vector.y());
+                pGraphicsItem->setPosition(start.x() - 150 + vector.x(), start.y() - 50 + vector.y());
             }
         }
+        break;
     }
     }
 }
 
 void PaintScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
-        ((WorkSurfaceWidget*)this->parent())->getCreator()->mouseReleaseEvent(event);
-
     switch (settings->getAction())
     {
     case Settings::DraggingObjectAction:
     {
+        for (int i = 0; i < m_selectedObjects.size(); ++i)
+        {
+            std::vector<QPointF> newPoints;
+            std::vector<QPointF> points;
+
+            for (int j = 0; j < m_selectedObjects[i].size(); ++j)
+            {
+                newPoints.push_back(m_selectedObjects[i][j]->getPosition());
+                points.push_back(QPointF(0, 0));
+            }
+            ObjectChangeHistory *object = new ObjectChangeHistory(false, m_selectedObjects[i], points, newPoints);
+            m_history.push_back(object);
+        }
+
+        iChangeHistoryIndex++;
+
         ((WorkSurfaceWidget*)this->parent())->setCursor(Qt::OpenHandCursor);
+
+        break;
     }
     }
+
+    if (((WorkSurfaceWidget*)this->parent())->getCreator() != NULL)
+        ((WorkSurfaceWidget*)this->parent())->getCreator()->mouseReleaseEvent(event);
 }

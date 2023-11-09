@@ -100,6 +100,7 @@ void CurveCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if(!aCurveElem.empty())
     {
+        std::vector<QPointF> points;
         std::vector<BaseEntity*> base;
         base.reserve(aCurveElem.size());
 
@@ -107,10 +108,17 @@ void CurveCreator::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         {
             base.push_back(dynamic_cast<BaseEntity*>(aCurveElem[i]));
             base.back()->getPosition() = aCurveElem[i]->getPosition();
+            points.push_back(base.back()->getPosition());
         }
 
         m_scene->getGraphicsItemsList()->push_back(base);
         m_scene->setLastElemIndex(1);
+
+        ObjectChangeHistory *object = new ObjectChangeHistory(true, base, points);
+
+        m_scene->getHistory()->push_back(object);
+        m_scene->setChangeHistoryIndex(1);
+
         aCurveElem.clear();
     }
 }

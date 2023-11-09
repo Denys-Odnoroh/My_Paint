@@ -25,21 +25,14 @@ public:
     {
         if (WorkSurfaceWidget->objectName().isEmpty())
             WorkSurfaceWidget->setObjectName("WorkSurfaceWidget");
-        WorkSurfaceWidget->resize(1440, 730);
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(WorkSurfaceWidget->sizePolicy().hasHeightForWidth());
-        WorkSurfaceWidget->setSizePolicy(sizePolicy);
+        WorkSurfaceWidget->resize(960, 640);
         WorkSurfaceWidget->setLayoutDirection(Qt::LeftToRight);
         graphicsView = new QGraphicsView(WorkSurfaceWidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(0, 0, 1440, 730));
-        sizePolicy.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
-        graphicsView->setSizePolicy(sizePolicy);
+        graphicsView->setGeometry(QRect(0, 0, 960, 640));
         graphicsView->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::NoBrush);
         graphicsView->setBackgroundBrush(brush);

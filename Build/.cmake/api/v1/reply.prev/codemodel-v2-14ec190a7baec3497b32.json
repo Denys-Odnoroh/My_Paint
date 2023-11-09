@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Release-d65123349b0acf2341e8.json",
+					"jsonFile" : "directory-.-Release-247387deb307b051e906.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MyPaint::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MyPaint-Release-c460e8d47fe33184da99.json",
+					"jsonFile" : "target-MyPaint-Release-bae172caafc9860c956d.json",
 					"name" : "MyPaint",
 					"projectIndex" : 0
 				},

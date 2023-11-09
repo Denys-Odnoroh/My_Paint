@@ -128,6 +128,9 @@ void ToolbarWidget::on_ClearButton_clicked()
     if(reply == QMessageBox::Yes)
     {
         m_workSurfaceWidget->getUI().graphicsView->scene()->clear();
+        m_scene->getHistory()->clear();
+        m_scene->getSelectedObjects()->clear();
+        m_scene->getGraphicsItemsList()->clear();
     }
 }
 
@@ -240,29 +243,62 @@ void ToolbarWidget::on_CircleButton_clicked()
 
 void ToolbarWidget::on_ReDoButton_clicked()
 {
-    if(!m_scene->getGraphicsItemsList()->empty() && m_scene->getLastElementIndex() != m_scene->getGraphicsItemsList()->size())
+    if(!m_scene->getHistory()->empty() && m_scene->getChangeHistoryIndex() != m_scene->getHistory()->size())
     {
-        m_scene->setLastElementIndex(m_scene->getLastElementIndex() + 1);
-        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
-
-        for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+        m_scene->setChangeHistoryIndex(1);
+        if(!m_scene->getGraphicsItemsList()->empty())
         {
-            m_scene->addItem(pGraphicsItem);
+            if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == true)
+            {
+                m_scene->setLastElementIndex(1);
+                DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
+
+                for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+                {
+                    m_scene->addItem(pGraphicsItem);
+                }
+            }
+            else if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == false)
+            {
+                for (int i = 0; i < m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getChangeHistoryArray().size(); ++i)
+                {
+                    QPointF point = m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getNewPoints()[i];
+                    m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPosition(point.x(), point.y());
+                    m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPos(point.x(), point.y());
+                }
+            }
         }
     }
 }
 
 void ToolbarWidget::on_UnDoButton_clicked()
 {
-    if(!m_scene->getGraphicsItemsList()->empty() && m_scene->getLastElementIndex() != 0)
+    if(!m_scene->getHistory()->empty() && m_scene->getChangeHistoryIndex() > -1)
     {
-        DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
-
-        for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+        if(!m_scene->getGraphicsItemsList()->empty() && m_scene->getLastElementIndex() > 0)
         {
-            m_scene->removeItem(pGraphicsItem);
+            if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == true)
+            {
+                DravableElementArray aDrawableElem = m_scene->getGraphicsItemsList()->at(m_scene->getLastElementIndex() - 1);
+
+                for(QGraphicsItem* pGraphicsItem : aDrawableElem)
+                {
+                    m_scene->removeItem(pGraphicsItem);
+                }
+                m_scene->setLastElementIndex(-1);
+                m_scene->setChangeHistoryIndex(-1);
+            }
+            else if(m_scene->getHistory()->at(m_scene->getChangeHistoryIndex() - 1)->getIsCreatedFlag() == false)
+            {
+                for (int i = 0; i < m_scene->getHistory()->back()->getChangeHistoryArray().size(); ++i)
+                {
+                    QPointF point = m_scene->getHistory()->back()->getOriginalPoints()[i];
+                    m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPosition(point.x(), point.y());
+                    m_scene->getHistory()->back()->getChangeHistoryArray()[i]->setPos(point.x(), point.y());
+                }
+                m_scene->setChangeHistoryIndex(-1);
+            }
         }
-        m_scene->setLastElementIndex(m_scene->getLastElementIndex() - 1);
     }
 }
 
@@ -284,4 +320,3 @@ void ToolbarWidget::on_ObectsSelectionButton_clicked()
     m_scene->getSettings()->setAction(Settings::ObjectsSelectionAction);
     m_workSurfaceWidget->setCreator();
 }
-

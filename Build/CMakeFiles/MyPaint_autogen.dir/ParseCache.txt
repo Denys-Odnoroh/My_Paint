@@ -184,6 +184,7 @@ D:/Qt Projects/My_Paint/Source/MainWindow.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QColorDialog
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem
+ mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGridLayout
@@ -662,11 +663,18 @@ D:/Qt Projects/My_Paint/Source/MainWindow.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wow64apiset.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypes.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypesbase.h
+ mdp:D:/Qt Projects/My_Paint/Source/BaseCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CircleCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CurveCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/Entityes.h
+ mdp:D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.h
  mdp:D:/Qt Projects/My_Paint/Source/PaintScene.h
+ mdp:D:/Qt Projects/My_Paint/Source/RectangleCreator.h
  mdp:D:/Qt Projects/My_Paint/Source/Settings.h
  mdp:D:/Qt Projects/My_Paint/Source/ToolbarWidget.h
  mdp:D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.h
 D:/Qt Projects/My_Paint/Source/Settings.cpp
+D:/Qt Projects/My_Paint/Source/CircleCreator.h
 D:/Qt Projects/My_Paint/Source/PaintScene.h
  mmc:Q_OBJECT
  mdp:D:/Qt Projects/My_Paint/Source/PaintScene.h
@@ -806,6 +814,7 @@ D:/Qt Projects/My_Paint/Source/PaintScene.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem
+ mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsitem.h
@@ -1030,6 +1039,8 @@ D:/Qt Projects/My_Paint/Source/PaintScene.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
+ mdp:D:/Qt Projects/My_Paint/Source/Entityes.h
+ mdp:D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.h
  mdp:D:/Qt Projects/My_Paint/Source/Settings.h
 D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.h
  mmc:Q_OBJECT
@@ -1193,6 +1204,7 @@ D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsexports.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem
+ mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QWidget
@@ -1639,11 +1651,18 @@ D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wow64apiset.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypes.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypesbase.h
+ mdp:D:/Qt Projects/My_Paint/Source/BaseCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CircleCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CurveCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/Entityes.h
+ mdp:D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.h
  mdp:D:/Qt Projects/My_Paint/Source/PaintScene.h
+ mdp:D:/Qt Projects/My_Paint/Source/RectangleCreator.h
  mdp:D:/Qt Projects/My_Paint/Source/Settings.h
+D:/Qt Projects/My_Paint/Source/PaintScene.cpp
+D:/Qt Projects/My_Paint/Source/CircleCreator.cpp
 D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.cpp
  uic:ui_WorkSurfaceWidget.h
-D:/Qt Projects/My_Paint/Source/PaintScene.cpp
 D:/Qt Projects/My_Paint/Source/Settings.h
 D:/Qt Projects/My_Paint/Source/ToolbarWidget.h
  mmc:Q_OBJECT
@@ -1829,6 +1848,7 @@ D:/Qt Projects/My_Paint/Source/ToolbarWidget.h
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QColorDialog
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem
+ mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent
  mdp:C:/Qt/6.6.0/mingw_64/include/QtWidgets/QMainWindow
@@ -2302,7 +2322,13 @@ D:/Qt Projects/My_Paint/Source/ToolbarWidget.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wow64apiset.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypes.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wtypesbase.h
+ mdp:D:/Qt Projects/My_Paint/Source/BaseCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CircleCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/CurveCreator.h
+ mdp:D:/Qt Projects/My_Paint/Source/Entityes.h
+ mdp:D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.h
  mdp:D:/Qt Projects/My_Paint/Source/PaintScene.h
+ mdp:D:/Qt Projects/My_Paint/Source/RectangleCreator.h
  mdp:D:/Qt Projects/My_Paint/Source/Settings.h
  mdp:D:/Qt Projects/My_Paint/Source/WorkSurfaceWidget.h
 D:/Qt Projects/My_Paint/Source/MainWindow.cpp
@@ -2311,3 +2337,15 @@ D:/Qt Projects/My_Paint/Source/ToolbarWidget.cpp
  uic:ui_ToolbarWidget.h
  uic:ui_WorkSurfaceWidget.h
 D:/Qt Projects/My_Paint/Source/main.cpp
+D:/Qt Projects/My_Paint/Source/BaseCreator.h
+D:/Qt Projects/My_Paint/Source/CurveCreator.h
+D:/Qt Projects/My_Paint/Source/Entities.h
+D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.h
+D:/Qt Projects/My_Paint/Source/RectangleCreator.h
+D:/Qt Projects/My_Paint/Source/BaseCreator.cpp
+D:/Qt Projects/My_Paint/Source/CurveCreator.cpp
+D:/Qt Projects/My_Paint/Source/Entities.cpp
+D:/Qt Projects/My_Paint/Source/ObjectChangeHistory.cpp
+D:/Qt Projects/My_Paint/Source/RectangleCreator.cpp
+D:/Qt Projects/My_Paint/Source/Entityes.h
+D:/Qt Projects/My_Paint/Source/Entityes.cpp

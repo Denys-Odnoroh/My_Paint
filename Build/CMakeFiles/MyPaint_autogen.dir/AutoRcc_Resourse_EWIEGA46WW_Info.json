@@ -7,7 +7,10 @@
 	"INCLUDE_DIR" : "D:/Qt Projects/My_Paint/Build/MyPaint_autogen/include",
 	"INPUTS" : 
 	[
+		"D:/Qt Projects/My_Paint/Source/Images/DottedSquare.png",
 		"D:/Qt Projects/My_Paint/Source/Images/EraserCursor.png",
+		"D:/Qt Projects/My_Paint/Source/Images/Circle.png",
+		"D:/Qt Projects/My_Paint/Source/Images/Oval.png",
 		"D:/Qt Projects/My_Paint/Source/Images/BrushCursor.png"
 	],
 	"LOCK_FILE" : "D:/Qt Projects/My_Paint/Build/CMakeFiles/MyPaint_autogen.dir/AutoRcc_Resourse_EWIEGA46WW_Lock.lock",

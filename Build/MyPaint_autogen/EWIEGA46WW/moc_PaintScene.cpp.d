@@ -135,6 +135,7 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
+  C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.6.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -359,4 +360,6 @@ D:/Qt\ Projects/My_Paint/Build/MyPaint_autogen/EWIEGA46WW/moc_PaintScene.cpp: D:
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/Qt\ Projects/My_Paint/Source/Entityes.h \
+  D:/Qt\ Projects/My_Paint/Source/ObjectChangeHistory.h \
   D:/Qt\ Projects/My_Paint/Source/Settings.h
